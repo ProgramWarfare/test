@@ -1,12 +1,16 @@
+"use strict";
 function Time() {
+  var date = new Date(); 
+  date.setTime(date.getTime() + (60 * 60 * 1000));
   // Creating object of the Date class
-  var date = new Date();
+ 
   // Get current hour
-  var hour = date.getHours();
+  
+  var hour = date.getUTCHours();
   // Get current minute
-  var minute = date.getMinutes();
+  var minute = date.getUTCMinutes();
   // Get current second
-  var second = date.getSeconds();
+  var second = date.getUTCSeconds();
   // Variable to store AM / PM
   var period = "";
   // Updating hour, minute, and second
@@ -15,8 +19,11 @@ function Time() {
   minute = update(minute);
   second = update(second);
   // Adding time elements to the div
-  document.getElementById("digital-clock","Digital","Digi","D").innerText = hour + " : " + minute + " : " + second + " " + period;
-  // Set Timer to 1 sec (1000 ms)
+  document.getElementById("digital-clock").innerText = hour + " : " + minute + " : " + second + " " + period;
+  document.getElementById("Digital").innerText = hour + " : " + minute + " : " + second + " " + period;
+  document.getElementById("Digi").innerText = hour + " : " + minute + " : " + second + " " + period;
+  document.getElementById("D").innerText = hour + " : " + minute + " : " + second + " " + period;
+    // Set Timer to 1 sec (1000 ms)
   setTimeout(Time, 1000);
  }
   // Function to update time elements if they are less than 10
@@ -29,4 +36,9 @@ function Time() {
   return t;
   }
  }
+
+
+
+
+
  Time();
